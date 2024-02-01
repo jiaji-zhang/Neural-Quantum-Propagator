@@ -1,0 +1,34 @@
+dir:  
+  root_dir: './'
+  input_dir: 'input_dataset/'
+  output_dir: 'output_response/'
+
+
+model:  
+  model_load: 'qme_fno_trained'  
+  lift_proj_layers: 2  
+  lift_proj_dim: 512
+  act_function: 'relu'
+  fourier_layers: 4
+  fourier_width: 256
+  fourier_modes: [64]  
+  pad_level: [15]
+  
+  
+pure_state_evolve:
+  file_name: 'Population'
+
+
+resp_data:
+  file_resp_init: 'Resp_initial'
+  file_resp_1st: 'Resp_1st'
+  file_resp_2nd: 'Resp_2nd'
+  physop_times: 'dipole_times'
+  physop_last_trace: 'dipole_right'
+
+
+phys:
+  system_size: 49 
+  time_nums: 50 
+  file_L_csr: 'L_qme.pt'
+

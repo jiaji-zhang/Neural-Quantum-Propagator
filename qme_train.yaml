@@ -1,0 +1,54 @@
+dir:  
+  root_dir: './'
+  input_dir: 'input_dataset/'
+  output_dir: 'output_training/'
+
+
+phys:
+  system_size: 49 
+  time_nums: 50 
+  file_L_csr: 'L_qme.pt'
+
+
+
+model:
+  lift_proj_layers: 2  
+  lift_proj_dim: 512
+  act_function: 'relu'
+  fourier_layers: 4
+  fourier_width: 256
+  fourier_modes: [64]  
+  pad_level: [15]
+  
+
+
+train:  
+  iterations: 1000
+  lr_base: 1.0e-4
+  milestones: [200, 400, 600, 800]
+  gamma: 0.5  
+
+  
+
+train_data:
+  file_name: 'Training'
+  num_sample: 200     
+  batch_size: 1
+  shuffle: True
+
+train_initial:
+  initial_sample: 200
+  batch_size: 1
+
+
+eval_data:
+  model_load: 'model_load'
+  file_name: 'Validation'  
+  num_sample: 200   
+  offset: 200
+  eval_time_size: 100
+
+
+
+
+
